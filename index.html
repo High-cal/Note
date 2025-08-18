@@ -2,18 +2,31 @@
 <html lang="en">
 <head>
     <title>ExterNote</title>
-    <link rel="stylesheet" href="style.css">    
+    <link rel="stylesheet" href="style.css">
+    <script src="script.jss"></script>
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">ExterNote</div>
         <div class="account">
-            <div id="dropdown" class="dropdown-menu"></div>
-            <!-- <img src="https://via.placeholder.com/40" class="profile-icon" onclick="toggleMenu()" alt="Profile">
-            <a href="#">Account</a> -->
+            <div class="dropdown">
+                <a href="#">Theme</a>
+                <a href="#">Logout</a>
+            </div>
         </div>
 
     </nav>
-    <button id="add">+</button>
+    <!-- Adding a note -->
+    <button id="add" class="add-button">+</button>
+    <form id="noteForm" class="hidden">
+        <h2>Add New Note</h2>
+        <input type="text" id="noteTitle" name="title" placeholder="New Note" required>
+        <textarea id="noteContent" name="content" placeholder="Note" required></textarea>
+        <div class="buttons">
+            <button type="submit" id="submitNote">Add</button>    
+            <button type="button" id="cancelNote">Cancel</button>
+        </div>
+    </form>
+
 </body>
 </html>
