@@ -5,19 +5,11 @@ body {
     background-color: #fff6cc;
 }
 
-#add {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    font-size: 30px;
-    bottom: 50px;
-    right: 50px;
-    background-color: #FFC300;
-    color: #fffafa;
-    border: none;
-    padding: 10px 10px;
-    border-radius: 5px;
-    cursor: pointer;
+.logo {
+    margin-left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
 }
 
 .navbar {    
@@ -28,13 +20,6 @@ body {
     color: #fff;
     align-items: center;
     padding: 10px 20px;
-}
-
-.logo {
-    margin-left: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
 }
 
 .account {
@@ -65,18 +50,33 @@ body {
     padding: 12px 16px;
     color: #333;
     text-decoration: none;
-    }
+}
 
 .dropdown a:hover {
     background-color: #f1f1f1;
 }
 
-/* the hover effect */
+#add {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    bottom: 50px;
+    right: 50px;
+    background-color: #FFC300;
+    color: #fffafa;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* the hover effect on account*/
 .account:hover .dropdown {
     opacity: 1;
     visibility: visible;
 }
-
+/* Note form field */
 .hidden {
     display: none;
 }
@@ -85,15 +85,25 @@ body {
     background-color: #FFEE99;
     padding: 20px;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin: 20px 100px;
 }
 
-#noteForm input, #noteForm textarea {
+#noteForm input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
+}
+
+#noteForm textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
 }
 
 .buttons {
