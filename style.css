@@ -4,7 +4,7 @@ body {
     padding: 0;
     background-color: #fff6cc;
 }
-
+/* Logos & Navbar */
 .logo {
     margin-left: 20px;
     font-size: 24px;
@@ -76,20 +76,61 @@ body {
     opacity: 1;
     visibility: visible;
 }
+
+/* Note */
+.noteLists {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.note {
+    position: relative;
+    width: 90%;
+    margin: 2% 2%;
+    padding: 10px;
+    background-color: #ffce18;
+    background: linear-gradient(131deg, rgba(255, 206, 24, 1) 35%, rgba(255, 239, 128, 1) 100%);
+    border-radius: 16px;
+}
+
+.delete-btn {
+    position: absolute;
+    background: none;
+    border: none;
+    top: 8px;
+    right: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #333;
+}
+
+.delete-btn:hover {
+    color: red;
+    animation: ease;
+}
+
 /* Note form field */
 .hidden {
     display: none;
 }
 
 #noteForm {
+    /* float */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    /* the form style */
     background-color: #FFEE99;
     padding: 20px;
     border-radius: 5px;
-    margin: 20px 100px;
+    width: 80%;
 }
 
 #noteForm input {
-    width: 100%;
+    width: 98%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
@@ -97,7 +138,7 @@ body {
 }
 
 #noteForm textarea {
-    width: 100%;
+    width: 98%;
     min-height: 150px;
     padding: 10px;
     margin-bottom: 10px;
@@ -106,6 +147,7 @@ body {
     resize: vertical;
 }
 
+/* Button */
 .buttons {
     display: flex;
     gap: 10px;

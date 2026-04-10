@@ -29,17 +29,51 @@ document.addEventListener('DOMContentLoaded', function() {
     // Reset and hide the form
     this.reset();
     this.classList.add('hidden');
-    showNoteFormBtn.classList.remove('hidden');
+    addBtn.classList.remove('hidden');
   });
   
-  function addNoteToList(title, content) {
-    const notesList = document.getElementById('notesList');
+  function addNoteToList(title, content, shouldSave = true) {
+    const noteLists = document.getElementById('noteLists');
     const noteElement = document.createElement('div');
     noteElement.className = 'note';
     noteElement.innerHTML = `
+      <span class="delete-btn">×</span>
       <h3>${title}</h3>
       <p>${content}</p>
     `;
-    notesList.prepend(noteElement);
-  }
+    // Delete button
+    noteElement.querySelector('.delete-btn').addEventListener('click', function() {
+      noteElement.remove();
+      deleteNote(title, content);
+    });
+
+    noteLists.prepend(noteElement);
+    if (shouldSave) {
+      SaveData(title, content);
+    }
+  };
+  
+  // Save and load data after refresh
+  function SaveData(title, content) {
+    let notes = JSON.parse(localStorage.getItem('notes')) || [];
+    notes.push({ title, content });
+    localStorage.setItem('notes', JSON.stringify(notes));
+  };
+
+  function LoadData() {
+    let notes = JSON.parse(localStorage.getItem('notes')) || [];
+    notes.forEach(note => {
+      addNoteToList(note.title, note.content, false);
+    });
+  };
+
+  // Delete button
+  function deleteNote(title, content) {
+    let notes = JSON.parse(localStorage.getItem('notes')) || [];
+    notes = notes.filter(note => note.title !== title || note.content !== content);
+    localStorage.setItem('notes', JSON.stringify(notes));
+  };
+
+  LoadData();
+  
 });
